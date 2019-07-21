@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hand.al.springbootdemo1.mapper.AppUserMapper">
+    <select id="findUserById" resultType="com.hand.al.springbootdemo1.pojo.AppUser">
+        select * from appuser where id=#{id}
+    </select>
+</mapper>
