@@ -25,13 +25,6 @@ spring:
         username: root
         password: admin123
         driver-class-name: com.mysql.cj.jdbc.Driver
-#    jpa:
-#        database: mysql
-#        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-#        show-sql: true
-#        hibernate:
-#            ddl-auto: update
-#            format_sql: true
     thymeleaf:
         cache: false
     redis:
@@ -51,4 +44,7 @@ spring:
       # 连接池中的最小空闲连接 默认 0
         lettuce.pool.min-idle: 0
 mybatis:
-    mapper-locations: classpath:/mybaits/mapping/*.xml
+    # 指定mapper xml的位置
+    mapper-locations: classpath:/mapping/*.xml
+    config-location: classpath:mybatis-config.xml
+

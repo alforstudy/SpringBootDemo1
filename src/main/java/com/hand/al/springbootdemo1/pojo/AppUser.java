@@ -1,30 +1,19 @@
 package com.hand.al.springbootdemo1.pojo;
 
 
-import org.hibernate.annotations.GeneratorType;
-import org.hibernate.annotations.GenericGenerator;
-
-import javax.persistence.*;
 import java.io.Serializable;
 
 
-@Entity
-@Table(name="appuser")
+
 public class AppUser implements Serializable {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username")
     private String username;
 
-    @Column(name = "phone")
     private String phone;
 
-    @ManyToOne
-    @JoinColumn(foreignKey=@ForeignKey(name="none"))
-    private Department dept;
+    private Long dept_id;
 
     public Long getId() {
         return id;
@@ -48,5 +37,13 @@ public class AppUser implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Long getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(Long dept_id) {
+        this.dept_id = dept_id;
     }
 }

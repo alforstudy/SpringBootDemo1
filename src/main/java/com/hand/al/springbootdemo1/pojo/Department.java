@@ -1,18 +1,12 @@
 package com.hand.al.springbootdemo1.pojo;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "department")
 public class Department {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
 
-    @Column(name = "username")
     private String dep_name;
 
-    @Column(name = "phone")
     private String dep_phone;
 
     public Long getId() {
