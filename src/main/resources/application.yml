@@ -1,50 +1,22 @@
-com:
-    hand:
-        author: "安磊"
-        appName: "Demo应用"
-
 server:
     port: 8080
     servlet:
         context-path: /
-
-logging:
-    file: "my.log"
-    path: "/tmp/me.log"
-    level:
-        com.hand.al: "INFO"
-
-#path 为本机的 log 地址,logging.level 后面可以根据包路径配置不同资源的 log 级别
-#注意 path指定的是目录 真实的日志输出是在path下的spring.log
-#file 指定的是输出的文件名
-
-
 spring:
+    jackson:
+        time-zone: GMT+8
+        date-format: yyyy-MM-dd HH:mm:ss
+        serialization:
+            FAIL_ON_EMPTY_BEANS: false
     datasource:
-        url: jdbc:mysql:///test?seUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+        url: jdbc:mysql:///test2?seUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
         username: root
         password: admin123
         driver-class-name: com.mysql.cj.jdbc.Driver
-    thymeleaf:
-        cache: false
-    redis:
-        database: 0
-      # Redis服务器地址
-        host: localhost
-      # Redis服务器连接端口
-        port: 6379
-      # Redis服务器连接密码（默认为空）
-        password:
-      # 连接池最大连接数（使用负值表示没有限制） 默认 8
-        lettuce.pool.max-active: 8
-      # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
-        lettuce.pool.max-wait: -1
-      # 连接池中的最大空闲连接 默认 8
-        lettuce.pool.max-idle: 8
-      # 连接池中的最小空闲连接 默认 0
-        lettuce.pool.min-idle: 0
 mybatis:
-    # 指定mapper xml的位置
     mapper-locations: classpath:/mapping/*.xml
     config-location: classpath:mybatis-config.xml
-
+    type-aliases-package: classpath:com.hand.al.springbootdemo1.vo
+mapper:
+    identity: MYSQL
+    mappers: com.hand.al.springbootdemo1.baseMapper.BaseMapper
